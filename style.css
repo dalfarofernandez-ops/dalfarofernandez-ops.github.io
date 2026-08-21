@@ -1552,3 +1552,168 @@ ul {
     }
 
 }
+
+/* =========================================================
+   ANIMACIONES DEL HERO
+   ========================================================= */
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroFadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(35px) rotate(1deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(1deg);
+    }
+}
+
+.hero-content .eyebrow {
+    animation: heroFadeUp 0.7s ease both;
+    animation-delay: 0.1s;
+}
+
+.hero-content h1 {
+    animation: heroFadeUp 0.7s ease both;
+    animation-delay: 0.2s;
+}
+
+.hero-content .hero-subtitle {
+    animation: heroFadeUp 0.7s ease both;
+    animation-delay: 0.3s;
+}
+
+.hero-content .hero-description {
+    animation: heroFadeUp 0.7s ease both;
+    animation-delay: 0.4s;
+}
+
+.hero-content .hero-buttons {
+    animation: heroFadeUp 0.7s ease both;
+    animation-delay: 0.5s;
+}
+
+.hero-code {
+    animation: heroFadeRight 0.9s ease both;
+    animation-delay: 0.3s;
+}
+
+
+/* =========================================================
+   INDICADOR VISUAL DEL HERO
+   ========================================================= */
+
+.hero::after {
+    content: "SCROLL TO EXPLORE ↓";
+
+    position: absolute;
+
+    bottom: 35px;
+    left: 30px;
+
+    color: var(--text-muted);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   EFECTO SUTIL EN EL BLOQUE DE CÓDIGO
+   ========================================================= */
+
+.code-window {
+    position: relative;
+}
+
+.code-window::after {
+    content: "";
+
+    position: absolute;
+
+    top: 48px;
+    left: 0;
+    right: 0;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent),
+        transparent
+    );
+
+    opacity: 0.35;
+
+    animation: codeScan 4s ease-in-out infinite;
+}
+
+@keyframes codeScan {
+    0%,
+    100% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .hero::after {
+        display: none;
+    }
+
+    .hero-code {
+        animation: heroFadeUp 0.9s ease both;
+        animation-delay: 0.4s;
+    }
+}
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-content .eyebrow,
+    .hero-content h1,
+    .hero-content .hero-subtitle,
+    .hero-content .hero-description,
+    .hero-content .hero-buttons,
+    .hero-code {
+        animation: none;
+    }
+
+    .code-window::after {
+        animation: none;
+    }
+}
