@@ -1717,3 +1717,148 @@ ul {
         animation: none;
     }
 }
+
+/* =========================================================
+   PROYECTOS — MEJORA VISUAL
+   ========================================================= */
+
+.projects-grid {
+    align-items: stretch;
+}
+
+
+/* Tarjetas */
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* Línea superior animada */
+
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent);
+
+    transition: width 0.4s ease;
+}
+
+
+.project-card:hover::before {
+    width: 100%;
+}
+
+
+/* Movimiento de la tarjeta */
+
+.project-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--border-accent);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Proyecto destacado */
+
+.project-card.featured {
+    grid-column: span 2;
+
+    min-height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Número del proyecto */
+
+.project-number {
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+
+.project-card:hover .project-number {
+    transform: scale(1.15);
+
+    opacity: 0.8;
+}
+
+
+/* Tipo de proyecto */
+
+.project-type {
+    transition:
+        letter-spacing 0.3s ease;
+}
+
+
+.project-card:hover .project-type {
+    letter-spacing: 0.12em;
+}
+
+
+/* Tecnologías */
+
+.project-technologies span {
+    transition:
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.project-technologies span:hover {
+    color: var(--accent);
+
+    border-color: var(--accent);
+
+    transform: translateY(-2px);
+}
+
+
+/* Enlace */
+
+.project-link {
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.project-link:hover {
+    transform: translateX(6px);
+}
+
+
+/* =========================================================
+   PROYECTOS — RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .project-card.featured {
+        grid-column: span 1;
+    }
+
+}
