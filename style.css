@@ -1582,8 +1582,8 @@ ul {
 }
 
 .hero-content .eyebrow {
-    animation: heroFadeUp 3s ease both;
-    animation-delay: 2s;
+    animation: heroFadeUp 2s ease both;
+    animation-delay: 1s;
 }
 
 .hero-content h1 {
