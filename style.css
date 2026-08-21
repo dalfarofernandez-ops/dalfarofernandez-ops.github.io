@@ -1336,3 +1336,219 @@ ul {
         animation-iteration-count: 1 !important;
     }
 }
+
+/* =========================================================
+   PROYECTOS
+   ========================================================= */
+
+.projects-intro {
+    max-width: 650px;
+
+    margin-bottom: 50px;
+}
+
+.projects-intro p {
+    color: var(--text-soft);
+
+    font-size: 1.05rem;
+}
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.project-card {
+    position: relative;
+
+    padding: 35px;
+
+    min-height: 360px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: var(--bg-soft);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transition),
+        border var(--transition),
+        background var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+
+    background: var(--bg-card-hover);
+
+    border-color: var(--border-accent);
+}
+
+.project-card.featured {
+    border-color: var(--border-accent);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 217, 165, 0.08),
+            rgba(0, 217, 165, 0.02)
+        );
+}
+
+.project-number {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    color: rgba(255, 255, 255, 0.08);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 3rem;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+.project-content {
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    height: 100%;
+}
+
+.project-type {
+    margin-bottom: 18px;
+
+    color: var(--accent);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+
+    font-size: 1.5rem;
+
+    line-height: 1.25;
+
+    letter-spacing: -0.025em;
+}
+
+.project-card p {
+    margin-bottom: 25px;
+
+    color: var(--text-soft);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+.project-technologies {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: auto;
+}
+
+.project-technologies span {
+    padding: 6px 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 5px;
+
+    color: var(--text-muted);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.7rem;
+}
+
+.project-link {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: var(--accent);
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.project-link:hover {
+    color: var(--text);
+
+    transform: translateX(4px);
+}
+
+.project-status {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: var(--text-muted);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   PROYECTOS — MÓVIL
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        min-height: auto;
+
+        padding: 30px;
+    }
+
+}
