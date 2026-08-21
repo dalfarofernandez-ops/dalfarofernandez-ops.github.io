@@ -1386,6 +1386,26 @@ ul {
         background var(--transition);
 }
 
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent);
+
+    transition: width 0.4s ease;
+}
+
+.project-card:hover::before {
+    width: 100%;
+}
+
 .project-card:hover {
     transform: translateY(-7px);
 
@@ -1407,21 +1427,32 @@ ul {
 
 .project-number {
     position: absolute;
-
+   
     top: 25px;
+   
     right: 30px;
-
+   
     color: rgba(255, 255, 255, 0.08);
-
+   
     font-family:
         "Courier New",
         monospace;
-
+   
     font-size: 3rem;
-
+   
     font-weight: 700;
-
+   
     line-height: 1;
+}
+
+.project-card:hover .project-number {
+    transform: scale(1.25) translateY(-8px);
+   
+    opacity: 0.8;
+   
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
 }
 
 .project-content {
@@ -1498,6 +1529,19 @@ ul {
         monospace;
 
     font-size: 0.7rem;
+}
+
+.project-technologies span {
+    transition:
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.project-technologies span:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
 }
 
 .project-link {
