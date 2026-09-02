@@ -1940,3 +1940,20 @@ ul {
 .project-image:hover img {
     transform: scale(1.03);
 }
+
+/* =========================================================
+   ANIMACIONES AL HACER SCROLL
+   ========================================================= */
+
+.section {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
