@@ -1306,10 +1306,16 @@ ul {
         text-align: center;
     }
 
-    .code-content {
-        padding: 20px;
+    .hero-code {
+        margin-top: 45px;
+    }
 
-        font-size: 0.72rem;
+    .code-content {
+        padding: 16px;
+
+        font-size: 0.68rem;
+
+        line-height: 1.8;
 
         overflow-x: auto;
     }
