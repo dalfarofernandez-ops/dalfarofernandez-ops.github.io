@@ -1906,3 +1906,21 @@ ul {
     }
 
 }
+
+/* =========================================================
+   IMAGEN DEL PROYECTO DESTACADO
+   ========================================================= */
+
+.project-image {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.project-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
