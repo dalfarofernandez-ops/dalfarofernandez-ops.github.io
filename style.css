@@ -1963,3 +1963,11 @@ ul {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* =========================================================
+   DESPLAZAMIENTO SUAVE
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
