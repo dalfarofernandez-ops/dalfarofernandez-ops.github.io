@@ -2,6 +2,7 @@
    DAVID ALFARO FERNÁNDEZ — PORTFOLIO
    ========================================================= */
 
+
 /* =========================================================
    VARIABLES
    ========================================================= */
@@ -480,6 +481,8 @@ ul {
     transform: rotate(1deg);
 
     transition: transform 0.5s ease;
+
+    position: relative;
 }
 
 .code-window:hover {
@@ -684,6 +687,7 @@ ul {
 
     font-size: 0.82rem;
 }
+
 
 /* =========================================================
    TIMELINE
@@ -1194,6 +1198,473 @@ ul {
 
 
 /* =========================================================
+   ANIMACIONES DEL HERO
+   ========================================================= */
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroFadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(35px) rotate(1deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(1deg);
+    }
+}
+
+.hero-content .eyebrow {
+    animation: heroFadeUp 2s ease both;
+    animation-delay: 1s;
+}
+
+.hero-content h1 {
+    animation: heroFadeUp 0.7s ease both;
+    animation-delay: 0.2s;
+}
+
+.hero-content .hero-subtitle {
+    animation: heroFadeUp 0.7s ease both;
+    animation-delay: 0.3s;
+}
+
+.hero-content .hero-description {
+    animation: heroFadeUp 0.7s ease both;
+    animation-delay: 0.4s;
+}
+
+.hero-content .hero-buttons {
+    animation: heroFadeUp 0.7s ease both;
+    animation-delay: 0.5s;
+}
+
+.hero-code {
+    animation: heroFadeRight 0.9s ease both;
+    animation-delay: 0.3s;
+}
+
+
+/* =========================================================
+   INDICADOR VISUAL DEL HERO
+   ========================================================= */
+
+.hero::after {
+    content: "SCROLL TO EXPLORE ↓";
+
+    position: absolute;
+
+    bottom: 35px;
+    left: 30px;
+
+    color: var(--text-muted);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   EFECTO SUTIL EN EL BLOQUE DE CÓDIGO
+   ========================================================= */
+
+.code-window::after {
+    content: "";
+
+    position: absolute;
+
+    top: 48px;
+    left: 0;
+    right: 0;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent),
+        transparent
+    );
+
+    opacity: 0.35;
+
+    animation: codeScan 4s ease-in-out infinite;
+}
+
+@keyframes codeScan {
+    0%,
+    100% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+
+/* =========================================================
+   ANIMACIONES AL HACER SCROLL
+   ========================================================= */
+
+.section {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   PROYECTOS
+   ========================================================= */
+
+.projects-intro {
+    max-width: 650px;
+    margin-bottom: 50px;
+}
+
+.projects-intro p {
+    color: var(--text-soft);
+    font-size: 1.05rem;
+}
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    align-items: stretch;
+}
+
+.project-card {
+    position: relative;
+
+    padding: 35px;
+
+    min-height: 360px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg-soft);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent);
+
+    transition: width 0.4s ease;
+}
+
+.project-card:hover::before {
+    width: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+
+    background: var(--bg-card-hover);
+
+    border-color: var(--border-accent);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.project-card.featured {
+    grid-column: span 2;
+
+    min-height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    padding: 35px;
+
+    border-color: var(--border-accent);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 217, 165, 0.08),
+            rgba(0, 217, 165, 0.02)
+        );
+}
+
+.projects-grid > .project-card:not(.featured) {
+    min-height: 330px;
+}
+
+.projects-grid > .project-card:not(.featured) .project-content {
+    justify-content: flex-start;
+}
+
+.project-content {
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    height: 100%;
+}
+
+.project-type {
+    margin-bottom: 18px;
+
+    color: var(--accent);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    transition: letter-spacing 0.3s ease;
+}
+
+.project-card:hover .project-type {
+    letter-spacing: 0.12em;
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+
+    font-size: 1.5rem;
+
+    line-height: 1.25;
+
+    letter-spacing: -0.025em;
+}
+
+.project-card p {
+    margin-bottom: 25px;
+
+    color: var(--text-soft);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+.project-number {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    color: rgba(255, 255, 255, 0.08);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 3rem;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+.project-card:hover .project-number {
+    transform: scale(1.15);
+
+    opacity: 0.8;
+}
+
+.project-technologies {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: auto;
+}
+
+.project-technologies span {
+    padding: 6px 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 5px;
+
+    color: var(--text-muted);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.7rem;
+
+    transition:
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.project-technologies span:hover {
+    color: var(--accent);
+
+    border-color: var(--accent);
+
+    transform: translateY(-2px);
+}
+
+.project-link {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: var(--accent);
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.project-link:hover {
+    color: var(--text);
+
+    transform: translateX(6px);
+}
+
+.project-status {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: var(--text-muted);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   PROYECTOS — IMAGEN
+   ========================================================= */
+
+.project-image {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 32px;
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    background: #0e1217;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.project-image img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.project-image:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--border-accent);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.3);
+}
+
+.project-image:hover img {
+    transform: scale(1.025);
+
+    filter: brightness(1.05);
+}
+
+
+/* =========================================================
    RESPONSIVE — TABLET
    ========================================================= */
 
@@ -1358,8 +1829,6 @@ ul {
         font-size: 2rem;
     }
 
-       /* Timeline en móvil */
-
     .timeline::before {
         left: 8px;
     }
@@ -1393,6 +1862,7 @@ ul {
 
     .timeline-content::before {
         left: -26px;
+
         top: 5px;
     }
 
@@ -1446,6 +1916,62 @@ ul {
 
         overflow-x: auto;
     }
+
+    .hero::after {
+        display: none;
+    }
+
+    .hero-code {
+        animation: heroFadeUp 0.9s ease both;
+
+        animation-delay: 0.4s;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        padding: 25px;
+
+        min-height: auto;
+    }
+
+    .project-card.featured {
+        grid-column: span 1;
+
+        padding: 25px;
+    }
+
+    .project-image {
+        margin-bottom: 25px;
+    }
+
+    .project-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .project-card p {
+        font-size: 0.88rem;
+    }
+
+    .project-number {
+        top: 20px;
+
+        right: 20px;
+
+        font-size: 2.4rem;
+    }
+
+    .project-technologies {
+        gap: 7px;
+    }
+
+    .project-technologies span {
+        padding: 5px 9px;
+
+        font-size: 0.68rem;
+    }
 }
 
 
@@ -1468,416 +1994,6 @@ ul {
 
         animation-iteration-count: 1 !important;
     }
-}
-
-/* =========================================================
-   PROYECTOS
-   ========================================================= */
-
-.projects-intro {
-    max-width: 650px;
-    margin-bottom: 50px;
-}
-
-.projects-intro p {
-    color: var(--text-soft);
-    font-size: 1.05rem;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    align-items: stretch;
-}
-
-.project-card {
-    position: relative;
-    padding: 35px;
-    min-height: 360px;
-
-    display: flex;
-    flex-direction: column;
-
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        background 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-.project-card::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 0;
-    height: 2px;
-
-    background: var(--accent);
-
-    transition: width 0.4s ease;
-}
-
-.project-card:hover::before {
-    width: 100%;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-
-    background: var(--bg-card-hover);
-    border-color: var(--border-accent);
-
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.25);
-}
-
-.project-card.featured {
-    grid-column: span 2;
-
-    min-height: auto;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    padding: 35px;
-
-    border-color: var(--border-accent);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0, 217, 165, 0.08),
-            rgba(0, 217, 165, 0.02)
-        );
-}
-
-.projects-grid > .project-card:not(.featured) {
-    min-height: 330px;
-}
-
-.projects-grid > .project-card:not(.featured) .project-content {
-    justify-content: flex-start;
-}
-
-.project-content {
-    position: relative;
-    z-index: 1;
-
-    display: flex;
-    flex-direction: column;
-
-    height: 100%;
-}
-
-.project-type {
-    margin-bottom: 18px;
-
-    color: var(--accent);
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    font-size: 0.75rem;
-    font-weight: 700;
-
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-
-    transition: letter-spacing 0.3s ease;
-}
-
-.project-card:hover .project-type {
-    letter-spacing: 0.12em;
-}
-
-.project-card h3 {
-    margin-bottom: 15px;
-
-    font-size: 1.5rem;
-    line-height: 1.25;
-    letter-spacing: -0.025em;
-}
-
-.project-card p {
-    margin-bottom: 25px;
-
-    color: var(--text-soft);
-
-    font-size: 0.9rem;
-    line-height: 1.7;
-}
-
-.project-number {
-    position: absolute;
-
-    top: 25px;
-    right: 30px;
-
-    color: rgba(255, 255, 255, 0.08);
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1;
-
-    transition:
-        transform 0.4s ease,
-        opacity 0.4s ease;
-}
-
-.project-card:hover .project-number {
-    transform: scale(1.15);
-    opacity: 0.8;
-}
-
-.project-technologies {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 8px;
-    margin-top: auto;
-}
-
-.project-technologies span {
-    padding: 6px 10px;
-
-    border: 1px solid var(--border);
-    border-radius: 5px;
-
-    color: var(--text-muted);
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    font-size: 0.7rem;
-
-    transition:
-        border-color 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
-}
-
-.project-technologies span:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-2px);
-}
-
-.project-link {
-    display: inline-block;
-
-    margin-top: 25px;
-
-    color: var(--accent);
-
-    font-size: 0.85rem;
-    font-weight: 700;
-
-    transition: var(--transition);
-}
-
-.project-link:hover {
-    color: var(--text);
-    transform: translateX(6px);
-}
-
-.project-status {
-    display: inline-block;
-
-    margin-top: 25px;
-
-    color: var(--text-muted);
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    font-size: 0.75rem;
-}
-
-/* =========================================================
-   PROYECTOS — MÓVIL
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card {
-        min-height: auto;
-
-        padding: 30px;
-    }
-
-}
-
-/* =========================================================
-   ANIMACIONES DEL HERO
-   ========================================================= */
-
-@keyframes heroFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes heroFadeRight {
-    from {
-        opacity: 0;
-        transform: translateX(35px) rotate(1deg);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0) rotate(1deg);
-    }
-}
-
-.hero-content .eyebrow {
-    animation: heroFadeUp 2s ease both;
-    animation-delay: 1s;
-}
-
-.hero-content h1 {
-    animation: heroFadeUp 0.7s ease both;
-    animation-delay: 0.2s;
-}
-
-.hero-content .hero-subtitle {
-    animation: heroFadeUp 0.7s ease both;
-    animation-delay: 0.3s;
-}
-
-.hero-content .hero-description {
-    animation: heroFadeUp 0.7s ease both;
-    animation-delay: 0.4s;
-}
-
-.hero-content .hero-buttons {
-    animation: heroFadeUp 0.7s ease both;
-    animation-delay: 0.5s;
-}
-
-.hero-code {
-    animation: heroFadeRight 0.9s ease both;
-    animation-delay: 0.3s;
-}
-
-
-/* =========================================================
-   INDICADOR VISUAL DEL HERO
-   ========================================================= */
-
-.hero::after {
-    content: "SCROLL TO EXPLORE ↓";
-
-    position: absolute;
-
-    bottom: 35px;
-    left: 30px;
-
-    color: var(--text-muted);
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    font-size: 0.65rem;
-
-    letter-spacing: 0.12em;
-
-    opacity: 0.7;
-}
-
-
-/* =========================================================
-   EFECTO SUTIL EN EL BLOQUE DE CÓDIGO
-   ========================================================= */
-
-.code-window {
-    position: relative;
-}
-
-.code-window::after {
-    content: "";
-
-    position: absolute;
-
-    top: 48px;
-    left: 0;
-    right: 0;
-
-    height: 1px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--accent),
-        transparent
-    );
-
-    opacity: 0.35;
-
-    animation: codeScan 4s ease-in-out infinite;
-}
-
-@keyframes codeScan {
-    0%,
-    100% {
-        opacity: 0.15;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-}
-
-
-/* =========================================================
-   MÓVIL
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .hero::after {
-        display: none;
-    }
-
-    .hero-code {
-        animation: heroFadeUp 0.9s ease both;
-        animation-delay: 0.4s;
-    }
-}
-
-
-/* =========================================================
-   REDUCIR MOVIMIENTO
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
 
     .hero-content .eyebrow,
     .hero-content h1,
@@ -1891,123 +2007,6 @@ ul {
     .code-window::after {
         animation: none;
     }
-}
-
-
-/* =========================================================
-   PROYECTOS — RESPONSIVE MÓVIL
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card {
-        padding: 25px;
-        min-height: auto;
-    }
-
-    .project-card.featured {
-        grid-column: span 1;
-        padding: 25px;
-    }
-
-    .project-image {
-        margin-bottom: 25px;
-    }
-
-    .project-card h3 {
-        font-size: 1.3rem;
-    }
-
-    .project-card p {
-        font-size: 0.88rem;
-    }
-
-    .project-number {
-        top: 20px;
-        right: 20px;
-        font-size: 2.4rem;
-    }
-
-    .project-technologies {
-        gap: 7px;
-    }
-
-    .project-technologies span {
-        padding: 5px 9px;
-        font-size: 0.68rem;
-    }
-
-}
-
-/* =========================================================
-   PROYECTOS — IMAGEN
-   ========================================================= */
-
-.project-image {
-    display: block;
-    width: 100%;
-
-    margin-bottom: 32px;
-
-    border-radius: var(--radius);
-    overflow: hidden;
-
-    border: 1px solid var(--border);
-    background: #0e1217;
-
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-.project-image img {
-    display: block;
-    width: 100%;
-
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-
-    transition:
-        transform 0.5s ease,
-        filter 0.5s ease;
-}
-
-.project-image:hover {
-    transform: translateY(-4px);
-
-    border-color: var(--border-accent);
-
-    box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.3);
-}
-
-.project-image:hover img {
-    transform: scale(1.025);
-    filter: brightness(1.05);
-}
-
-
-/* =========================================================
-   ANIMACIONES AL HACER SCROLL
-   ========================================================= */
-
-.section {
-    opacity: 0;
-    transform: translateY(35px);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 
