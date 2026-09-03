@@ -1969,6 +1969,16 @@ ul {
     padding: 35px;
 }
 
+/* Proyectos secundarios */
+
+.projects-grid > .project-card:not(.featured) {
+    min-height: 330px;
+}
+
+.projects-grid > .project-card:not(.featured) .project-content {
+    justify-content: flex-start;
+}
+
 
 /* Número del proyecto */
 
