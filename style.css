@@ -1944,22 +1944,19 @@ ul {
 }
 
 /* =========================================================
-   IMAGEN DEL PROYECTO DESTACADO
+   PROYECTOS — IMAGEN
    ========================================================= */
 
 .project-image {
     display: block;
-
     width: 100%;
 
     margin-bottom: 32px;
 
     border-radius: var(--radius);
-
     overflow: hidden;
 
     border: 1px solid var(--border);
-
     background: #0e1217;
 
     transition:
@@ -1970,11 +1967,9 @@ ul {
 
 .project-image img {
     display: block;
-
     width: 100%;
 
     aspect-ratio: 16 / 9;
-
     object-fit: cover;
 
     transition:
@@ -1993,9 +1988,9 @@ ul {
 
 .project-image:hover img {
     transform: scale(1.025);
-
     filter: brightness(1.05);
 }
+
 
 /* =========================================================
    ANIMACIONES AL HACER SCROLL
@@ -2004,6 +1999,7 @@ ul {
 .section {
     opacity: 0;
     transform: translateY(35px);
+
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
@@ -2013,6 +2009,7 @@ ul {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 /* =========================================================
    DESPLAZAMIENTO SUAVE
