@@ -1358,6 +1358,44 @@ ul {
         font-size: 2rem;
     }
 
+       /* Timeline en móvil */
+
+    .timeline::before {
+        left: 8px;
+    }
+
+    .timeline-item {
+        display: block;
+
+        padding-left: 30px;
+        padding-bottom: 50px;
+    }
+
+    .timeline-item:hover {
+        transform: translateX(3px);
+    }
+
+    .timeline-date {
+        padding-top: 0;
+
+        margin-bottom: 12px;
+
+        text-align: left;
+    }
+
+    .timeline-item:hover .timeline-date {
+        transform: translateX(3px);
+    }
+
+    .timeline-content {
+        padding-left: 0;
+    }
+
+    .timeline-content::before {
+        left: -26px;
+        top: 5px;
+    }
+
     .education-grid,
     .skills-grid,
     .additional-grid,
