@@ -600,6 +600,11 @@ ul {
     color: var(--text);
 }
 
+
+/* =========================================================
+   DESTACADOS
+   ========================================================= */
+
 .about-highlight {
     border-left: 1px solid var(--border);
 
@@ -607,6 +612,8 @@ ul {
 }
 
 .highlight-item {
+    position: relative;
+
     display: flex;
 
     flex-direction: column;
@@ -614,10 +621,38 @@ ul {
     padding: 24px 0;
 
     border-bottom: 1px solid var(--border);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease;
 }
 
 .highlight-item:first-child {
     padding-top: 0;
+}
+
+.highlight-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: -36px;
+    bottom: -1px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent);
+
+    transition: width 0.4s ease;
+}
+
+.highlight-item:hover {
+    transform: translateX(6px);
+}
+
+.highlight-item:hover::before {
+    width: 35px;
 }
 
 .highlight-number {
@@ -630,6 +665,16 @@ ul {
     font-weight: 800;
 
     letter-spacing: -0.04em;
+
+    transition:
+        transform 0.35s ease,
+        letter-spacing 0.35s ease;
+}
+
+.highlight-item:hover .highlight-number {
+    transform: translateX(4px);
+
+    letter-spacing: -0.02em;
 }
 
 .highlight-label {
@@ -639,7 +684,6 @@ ul {
 
     font-size: 0.82rem;
 }
-
 
 /* =========================================================
    TIMELINE
