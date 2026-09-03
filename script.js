@@ -64,7 +64,14 @@ if (menuToggle && navLinks) {
 
 const sections = document.querySelectorAll(".section");
 
-if ("IntersectionObserver" in window) {
+const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
+
+if (
+    "IntersectionObserver" in window &&
+    !prefersReducedMotion
+) {
 
     const observer = new IntersectionObserver(
         (entries, observer) => {
@@ -92,11 +99,6 @@ if ("IntersectionObserver" in window) {
     });
 
 } else {
-
-    /*
-     * Fallback para navegadores sin IntersectionObserver.
-     * Evita que las secciones permanezcan ocultas.
-     */
 
     sections.forEach((section) => {
         section.classList.add("visible");
