@@ -721,10 +721,16 @@ ul {
     position: relative;
 
     padding-bottom: 70px;
+
+    transition: transform 0.35s ease;
 }
 
 .timeline-item:last-child {
     padding-bottom: 0;
+}
+
+.timeline-item:hover {
+    transform: translateX(6px);
 }
 
 .timeline-date {
@@ -741,6 +747,16 @@ ul {
     padding-top: 5px;
 
     text-align: right;
+
+    transition:
+        transform 0.35s ease,
+        letter-spacing 0.35s ease;
+}
+
+.timeline-item:hover .timeline-date {
+    transform: translateX(-4px);
+
+    letter-spacing: 0.04em;
 }
 
 .timeline-content {
@@ -766,6 +782,17 @@ ul {
 
     box-shadow:
         0 0 0 5px rgba(0, 217, 165, 0.1);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.timeline-item:hover .timeline-content::before {
+    transform: scale(1.35);
+
+    box-shadow:
+        0 0 0 7px rgba(0, 217, 165, 0.12);
 }
 
 .company {
@@ -780,6 +807,12 @@ ul {
     text-transform: uppercase;
 
     letter-spacing: 0.06em;
+
+    transition: letter-spacing 0.3s ease;
+}
+
+.timeline-item:hover .company {
+    letter-spacing: 0.09em;
 }
 
 .timeline-content h3 {
@@ -816,6 +849,8 @@ ul {
     color: var(--text-soft);
 
     font-size: 0.93rem;
+
+    transition: color 0.25s ease;
 }
 
 .timeline-content li::before {
@@ -826,6 +861,16 @@ ul {
     left: 0;
 
     color: var(--accent);
+
+    transition: transform 0.25s ease;
+}
+
+.timeline-item:hover .timeline-content li {
+    color: var(--text);
+}
+
+.timeline-item:hover .timeline-content li::before {
+    transform: translateX(4px);
 }
 
 
