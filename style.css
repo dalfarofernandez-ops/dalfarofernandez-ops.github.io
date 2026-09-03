@@ -1958,11 +1958,15 @@ ul {
 .project-card.featured {
     grid-column: span 2;
 
-    min-height: 300px;
+    min-height: auto;
 
     display: flex;
+
     flex-direction: column;
-    justify-content: center;
+
+    justify-content: flex-start;
+
+    padding: 35px;
 }
 
 
