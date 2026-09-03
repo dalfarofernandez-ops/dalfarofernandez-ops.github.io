@@ -1152,23 +1152,44 @@ ul {
 }
 
 .additional-grid article {
+    position: relative;
+
     padding: 28px 0;
 
     border-top: 1px solid var(--border);
+
+    transition:
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.additional-grid article:hover {
+    border-color: var(--border-accent);
+
+    transform: translateX(4px);
 }
 
 .additional-grid h3 {
     margin-bottom: 10px;
 
     font-size: 1.15rem;
+
+    line-height: 1.4;
+
+    transition: color 0.3s ease;
+}
+
+.additional-grid article:hover h3 {
+    color: var(--accent);
 }
 
 .additional-grid p {
     color: var(--text-soft);
 
     font-size: 0.9rem;
-}
 
+    line-height: 1.7;
+}
 
 /* =========================================================
    OTROS DATOS
