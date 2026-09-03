@@ -1211,9 +1211,21 @@ ul {
 }
 
 .detail {
+    position: relative;
+
     padding-top: 20px;
 
     border-top: 1px solid var(--border);
+
+    transition:
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.detail:hover {
+    border-color: var(--border-accent);
+
+    transform: translateY(-3px);
 }
 
 .detail h3 {
@@ -1232,12 +1244,19 @@ ul {
     color: var(--text-soft);
 
     font-size: 0.9rem;
+
+    line-height: 1.7;
 }
 
 .detail strong {
     color: var(--text);
+
+    transition: color 0.3s ease;
 }
 
+.detail:hover strong {
+    color: var(--accent);
+}
 
 /* =========================================================
    CONTACTO
@@ -1256,13 +1275,16 @@ ul {
             rgba(0, 217, 165, 0.12),
             transparent 50%
         ),
-
         #0e1217;
 
     text-align: center;
 }
 
 .contact-content {
+    position: relative;
+
+    z-index: 1;
+
     max-width: 760px;
 
     margin: 0 auto;
@@ -1276,6 +1298,12 @@ ul {
     line-height: 1;
 
     letter-spacing: -0.06em;
+
+    transition: color 0.3s ease;
+}
+
+.contact-section h2:hover {
+    color: var(--accent);
 }
 
 .contact-section > .contact-content > p:not(.eyebrow) {
@@ -1284,8 +1312,9 @@ ul {
     margin: 0 auto 35px;
 
     color: var(--text-soft);
-}
 
+    line-height: 1.7;
+}
 
 /* =========================================================
    FOOTER
@@ -1302,6 +1331,8 @@ ul {
 
     justify-content: space-between;
 
+    align-items: center;
+
     gap: 20px;
 
     border-top: 1px solid var(--border);
@@ -1309,8 +1340,15 @@ ul {
     color: var(--text-muted);
 
     font-size: 0.75rem;
+
+    line-height: 1.6;
+
+    transition: border-color 0.3s ease;
 }
 
+.site-footer:hover {
+    border-color: var(--border-accent);
+}
 
 /* =========================================================
    ANIMACIONES DEL HERO
